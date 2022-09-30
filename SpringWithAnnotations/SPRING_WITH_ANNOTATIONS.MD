@@ -2,6 +2,11 @@ Spring with annnotations
     -> Class Name : TennisCoach     ->DefaultBeanName : tennisCoach 
     Always first letter will be lower case for Beans Defatult Name.
 
+    This process name by : DECAPTALIZE 
+    Java has one method called public static String decapitalized(String name) That Spring boot
+    use to set default name of Beans ID.
+
+
     -> With annotions from spring all the setup from applicationContext.xml get more simple.
 This means that using @Component inseide your class that will be a Bean, and calling this bean from your
 Main class , he will inicialize the beans from all packages setup at applicationContext.xml...
@@ -64,17 +69,77 @@ Its up to you use a defaulty name or create a special one... at  @Compontent
             this.fortuneService = fortuneService;
             }
 
-        ->Field Injections
+        ->Method Injection
 
-You need to add @Component inside your class that implements you interface
+            You can use @Autowired annotion to any method you need to do injecton dependency
+            Simple as that! Just use the annotion to spring inject!
 
-So use autowired at your constructor and Spring will inject dependency for you with Spring annotations
+            So I did some example without Autowired Annotation to you saw that Spring will not inject dependency
+            without annotation
+
+    You need to add @Component inside your class that implements you interface
+
+    So use autowired at your constructor and Spring will inject dependency for you with Spring annotations
+
+->Field Injections 
+    ->Applied directly to the field
+    ->No need for setter methods
+
+    ->(Using Java Technology called Reflection!)
+        @Autowired
+        private FortuneService fortuneService;
 
 
+Ok, NOW WHAT KIND OF STYLE I WILL USE?
+    STAY consistent in yout project!!!
 
 
+    ->Using @Qualifier Annotation
+        ->THis is very important to tells to Spring what dependency injection you need from classes thata
+    implement your interface. As this code you have HappyFortuneService and NotSoHappy... that implements
+    Fortune service, just tell to Spring what implementation you whant... using
+    @Qualifier("nameOfClassThatImplementInterface")
 
+    @Qualifier("notSoHappyFortuneService")
+    private FortuneService fortuneService;
 
+->You can use this @Qualifier annotation to
+        ->Constructor Injection
+        ->Setter Injection methods
+        ->Field Injection
 
+    ->IMPORTANT NOTE, DONT FORGET TO USE THE @Component at each class of Spring ... without this
+    Spring will not saw this Class to create a Bean
+    
+    
+    You can use @Qualifier inside the argument of constuctor
+        Ex:
+        @Autowired
+        public TennisCoach(@Qualifier ("randomFortuneService") FortuneService fortuneService{
+            System.out.prinln("Tennis coach inside constructor ");
+            this.fortuneService=fortuneService;
+        }
 
     
+
+You can use the ".properties" file to set some variables or values
+Just create a .properties file and insert the values you whant...
+    Ex: 
+        foo.name=Everton Rodrigues
+        foo.team=Vasco da Gama
+
+After That create inside applicationContext.xml the:
+    <context:property-placeholder location="classpath:sport.properties"/>
+
+    That will link the property to sport.properties. so when Spring Beans look at applicationContext.xml
+    file he will look at sport.properties, and when you inject the TennisCoah, he will follow the path.
+
+    After that create at TennisCoach class the attribute Name and team
+    Also use the Annotation of @Value to set the "direction to Java Beans loook at"
+
+        Ex:
+            @Value("${foo.name}")
+            private String name;
+
+            @Value("${foo.team}")
+            private String team;
