@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class TennisCoach implements Coach{
 
@@ -37,6 +40,19 @@ public class TennisCoach implements Coach{
         System.out.println("Name of: "+ getName());
         System.out.println("Team of:" + getTeam());
         return fortuneService.getFortuneService();
+    }
+
+
+    //Define my Init Method
+    @PostConstruct
+    public void doMyStartupeStuff(){
+        System.out.println("Inside doMyStartupStuff");
+    }
+
+    //Before Destruc beans, this method will run
+    @PreDestroy
+    public void destroyMethod(){
+        System.out.println("Destroy method inside Tennis coach ");
     }
 
     public String getName() {

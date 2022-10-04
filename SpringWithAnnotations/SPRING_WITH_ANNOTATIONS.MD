@@ -143,3 +143,18 @@ After That create inside applicationContext.xml the:
 
             @Value("${foo.team}")
             private String team;
+
+
+->Using @Scope annotaion todefine as Singleton or Prototype the Beans
+    ->At Class you must use @Scope("singleton") or @Scope("prototype") to define the aproach of Beans
+    ->If the class was without annotation the DEFAULT Scope it will be singleton
+
+->Init Destroy Methods
+    ->After Java 8 the Annotation of @PosConstruct  and @PreDestroy Annotation was unnavialable in
+defaulty classpath of spring boot packages.
+    You need to add another Jar file into your lib Project
+    You must download javax.annotation-api-1..2.jar
+    So if you have errors on this Annotations, its beacuse you dont have the right jar lib file
+    Just import the Library .jar file and the Annotation will import the class without errors.
+    
+
