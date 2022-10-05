@@ -187,3 +187,71 @@ SPRING MVC -> Framework for building web applications in Java
     ->Leverages features of the Core Spring Framework (IoC, DI)
 
 
+->Benefits of Using Spring MVC
+    
+    ->The Spring way of building web apps Uis in java
+    ->Leverage a set of reusable UI components
+    ->Help manage application state for web requests
+    ->Process from data : validation, conversion etc
+    ->Flexible configuration for the view layer
+
+-> Components of Spring MVC Application
+    
+    ->A set of web pages to layout UI components
+    ->A collection of Spring Beans (controllers, services, etc)
+    ->Spring configuration (XML, Annotations or Java)
+
+
+        |Web Browser|   -->  Front Controller 
+                                  |
+                                  V     Model
+                            Controller
+                                  |
+                                  V     Model
+        |Web Browser   <--  View Template
+
+Front Controller know as DispatcherServlet
+    ->Part of Spring Framework
+    ->Already developed by Spring Dev Team
+
+You will Create:
+    ->Model Objects
+    ->View templates
+    ->Controller classes
+
+
+    ->Controller
+        ->Code created by Developer
+
+        ->Contains your business logic
+            ->Handle the request
+            ->Store/retireve data ( db, web service...)
+            ->Place data in model
+        
+        ->Send to appropriete view template
+
+    ->Model
+        ->Model contains your data
+        ->Store /retrieve data via backend system
+            ->database , web service etc...
+            ->Use a Spring bean if you like
+
+        ->Place your data in the model
+            ->Data can be any Java object / collection
+
+    ->View Template
+        ->Spring MVC is very Flexible
+            ->Supports many view templates
+        ->Most common is JSP + JSPL
+        
+        ->Developer creates a page
+            ->Display data
+
+    View Template (more)
+        ->Other view teamplates supported
+            ->Thymeleaf, Groovy
+            ->Velocity, Freemarker, etc
+
+        
+
+
