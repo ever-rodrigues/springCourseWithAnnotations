@@ -12,5 +12,4 @@
     <!--add entry to enable component scanning-->
     <context:component-scan base-package="com.springwithannotations"/>
     <!--Place holder is necessary to use only Annotation at Spring Beans-->
-    <context:property-placeholder location="classpath:sport.properties"/>
 </beans>

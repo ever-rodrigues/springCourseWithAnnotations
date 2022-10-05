@@ -9,9 +9,12 @@ public class WithoutXMLDemo {
         AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext(SportConfig.class);
 
         //get he bean from Spring Container
-        Coach myCoach = context.getBean("tennisCoach", Coach.class);
+        SwimCoach theCoach= context.getBean("swimCoach", SwimCoach.class);
 
-        System.out.println(myCoach.getDailyWorkoout());
+
+        System.out.println(theCoach.getDailyWorkoout());
+        System.out.println("Name: "+theCoach.getName());
+        System.out.println("Team: "+theCoach.getTeam());
 
         context.close();
         //call a method on the bean

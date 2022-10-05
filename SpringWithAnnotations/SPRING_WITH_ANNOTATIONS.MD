@@ -170,4 +170,20 @@ defaulty classpath of spring boot packages.
        -> ex: @ComponentScan (""com.springWithoutXML.springDemo")
 
 
+    @Bean annotation is like a wrapper / adapter fot thirt-party classes.
+    You whant to make the thirt-party classes available to your Spring Framework application context.
+
+
+Using Annotayion of @PropertySource  to add the path of the properties across your Config File
+    ->This will keep the path across Annotation
+
+    ->So we are injecting data from our sport.preperties file to our Java Class.
+
+
+
+SPRING MVC -> Framework for building web applications in Java
+        
+    ->BASED ON MODEL-VIEW-CONTROLLER design pattern
+    ->Leverages features of the Core Spring Framework (IoC, DI)
+
 
