@@ -1,3 +1,4 @@
+    -> XML COMPONENT SCAN
 Spring with annnotations
     -> Class Name : TennisCoach     ->DefaultBeanName : tennisCoach 
     Always first letter will be lower case for Beans Defatult Name.
@@ -8,8 +9,8 @@ Spring with annnotations
 
 
     -> With annotions from spring all the setup from applicationContext.xml get more simple.
-This means that using @Component inseide your class that will be a Bean, and calling this bean from your
-Main class , he will inicialize the beans from all packages setup at applicationContext.xml...
+This means that using @Component inside your class that will be a Bean, and calling this bean from your
+Main class , he will initialize the beans from all packages setup at applicationContext.xml...
 Ex:
     ->     <context:component-scan base-package="com.springwithannotations"/>
     ->Here you are set up all the base-package that spring will look for the beans
@@ -157,4 +158,16 @@ defaulty classpath of spring boot packages.
     So if you have errors on this Annotations, its beacuse you dont have the right jar lib file
     Just import the Library .jar file and the Annotation will import the class without errors.
     
+
+
+
+    USING JAVA CONFIGURATION INSTEAD OF CONFIGURING CONTAINER USING XML
+        ->NO XML!!! 
+        ->JAVA CONFIGURATION CLASS ->NO XML!
+        @Configuration
+
+@ComponentScan -> Spring will scan the package
+       -> ex: @ComponentScan (""com.springWithoutXML.springDemo")
+
+
 
